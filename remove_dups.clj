@@ -12,13 +12,11 @@
                     (recur result seen-names (rest unseen-maps))
                     (recur (conj result current) (conj seen-names current-name) (rest unseen-maps)))))))
 
-                
-(def m [{:name "foo" :value 1} {:name "baz" :value 2} {:name "foo" :value 3}])
+(defn remove-dups-by-key2 [map_coll thekey]
+    (vals (reduce #(assoc %1 (thekey %2) %2) {} map_coll)))
+
+
+(def m [{:name "Caleb" :value 1} {:name "Whitney" :value 2} {:name "Hastin" :value 3}])
 
 (println (remove-dups-by-key m :name))
-
-; An alternate implementation
-(println
-    ((fn [recs]
-        (vals (reduce #(assoc %1 (:name %2) %2) {} recs)))
-            m))
+(println (remove-dups-by-key2 m :name))
