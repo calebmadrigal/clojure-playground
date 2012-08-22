@@ -16,7 +16,10 @@
     (vals (reduce #(assoc %1 (thekey %2) %2) {} map_coll)))
 
 
-(def m [{:name "Caleb" :value 1} {:name "Whitney" :value 2} {:name "Hastin" :value 3}])
+(def m [{:name "Caleb" :value 1}
+        {:name "Whitney" :value 2}
+        {:name "Hastin" :value 3}
+        {:name "Caleb" :value 4}])
 
 (println (remove-dups-by-key m :name))
 (println (remove-dups-by-key2 m :name))
